@@ -12,5 +12,5 @@ No.
 
 **Do I need to compile this myself?**
 
-Yes, unless you want to set up CI for me.
+Yes, at least until CI is set up for this (maybe never)
 
