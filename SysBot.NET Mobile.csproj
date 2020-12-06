@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="4.1.0" />
+    <PackageReference Include="Discord.Net" Version="2.2.0" />
+    <PackageReference Include="Discord.Net.Core" Version="2.2.0" />
+    <PackageReference Include="Fody" Version="6.3.0">
+      <PrivateAssets>All</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Google.Apis" Version="1.49.0" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.49.0" />
+    <PackageReference Include="Google.Apis.Core" Version="1.49.0" />
+    <PackageReference Include="Google.Apis.YouTube.v3" Version="1.49.0.2162" />
+    <PackageReference Include="Google.Apis.YouTubePartner.v1" Version="1.35.1.1334" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NLog" Version="4.7.5" />
+    <PackageReference Include="PKHeX.Core" Version="20.11.28" />
+    <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
+    <PackageReference Include="TwitchLib.Client" Version="3.1.5" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="deps\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Z3">
+      <HintPath>deps\Microsoft.Z3.dll</HintPath>
+    </Reference>
+    <Reference Include="PKHeX.Core.AutoMod">
+      <HintPath>deps\PKHeX.Core.AutoMod.dll</HintPath>
+    </Reference>
+    <Reference Include="SysBot.Base">
+      <HintPath>deps\SysBot.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="SysBot.Pokemon">
+      <HintPath>deps\SysBot.Pokemon.dll</HintPath>
+    </Reference>
+    <Reference Include="SysBot.Pokemon.Discord">
+      <HintPath>deps\SysBot.Pokemon.Discord.dll</HintPath>
+    </Reference>
+    <Reference Include="SysBot.Pokemon.Twitch">
+      <HintPath>deps\SysBot.Pokemon.Twitch.dll</HintPath>
+    </Reference>
+    <Reference Include="SysBot.Pokemon.Z3">
+      <HintPath>deps\SysBot.Pokemon.Z3.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidNativeLibrary Include="deps/libz3.so">
+      <Abi>armeabi</Abi>
+    </AndroidNativeLibrary>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\BotPage.xaml.cs">
+      <DependentUpon>BotPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LogPage.xaml.cs">
+      <DependentUpon>LogPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+      None
+    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <MSBuildWarningsAsMessages>MSB3270</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+  
+</Project>
