@@ -8,7 +8,7 @@ SysBot.NET with a Xamarin.Forms frontend for the UI. Currently only works with A
 
 **Is this fully functional?**
 
-No.
+No. The only function I've tested is $clone
 
 **Do I need to compile this myself?**
 
