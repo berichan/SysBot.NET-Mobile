@@ -8,7 +8,7 @@ SysBot.NET with a Xamarin.Forms frontend for the UI. Currently only works with A
 
 **Is this fully functional?**
 
-No. The only function I've tested is $clone
+No. The only function I've tested is $clone. The only way to stop bots currently is to kill the app.
 
 **Do I need to compile this myself?**
 
