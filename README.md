@@ -14,3 +14,12 @@ No. The only function I've tested is $clone. The only way to stop bots currently
 
 Yes, at least until CI is set up for this (maybe never)
 
+**How do I use it?**
+
+Transfer your config.json from your SysBot.exe folder to your mobile device, then hit the "load config.json" button in the app. All bots (besides YouTube) will start immediately.
+
+**Is there any support for this/are you still working on it?**
+
+No.
+
+![img](https://i.imgur.com/zC00YQ4.png)
