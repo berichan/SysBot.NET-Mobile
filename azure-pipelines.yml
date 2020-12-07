@@ -29,6 +29,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: SysBot-Mobile_Android'
   inputs:
-    PathtoPublish: 'SysBot.NET Mobile.Android\bin\Release\'
+    PathtoPublish: 'SysBot.NET Mobile\SysBot.NET Mobile.Android\bin\Release\'
     ArtifactName: SysBot.NET_Mobile
   condition: succeededOrFailed()
