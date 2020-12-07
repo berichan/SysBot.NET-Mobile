@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -58,12 +58,6 @@
     <Reference Include="SysBot.Pokemon.Z3">
       <HintPath>deps\SysBot.Pokemon.Z3.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <AndroidNativeLibrary Include="deps/libz3.so">
-      <Abi>armeabi</Abi>
-    </AndroidNativeLibrary>
   </ItemGroup>
 
   <ItemGroup>

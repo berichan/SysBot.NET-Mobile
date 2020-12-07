@@ -73,6 +73,7 @@ namespace SysBot.NET_Mobile.Views
                 LogUtil.Forwarders.Add(Log);
                 env.StartAll();
                 Log("Started all bots.");
+                ConfigStatus = "Bots started. Check logs.";
             }
             else
             {
