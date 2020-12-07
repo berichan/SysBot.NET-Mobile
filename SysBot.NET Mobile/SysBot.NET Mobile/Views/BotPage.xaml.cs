@@ -21,11 +21,29 @@ namespace SysBot.NET_Mobile.Views
                 OnPropertyChanged(nameof(ConfigStatus)); // Notify that there was a change on this property
             }
         }
+
+        private StackLayout stackLayout;
+        private Button killButton;
+        private EventHandler currentHandler = null;
+
         public BotPage()
         {
             InitializeComponent();
             BindingContext = this;
             ConfigStatus = "No config loaded.";
+
+            stackLayout = new StackLayout
+            {
+                Spacing = 0,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+
+            killButton = new Button
+            {
+                Text = "Stop all bots"
+            };
+            stackLayout.Children.Add(killButton);
+            killButton.IsVisible = false;
         }
 
         async void Button_Clicked(object sender, EventArgs e)
@@ -57,6 +75,8 @@ namespace SysBot.NET_Mobile.Views
             Log("Starting up...");
             PokeTradeBot.SeedChecker = new Z3SeedSearchHandler<PK8>();
             Directory.SetCurrentDirectory(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal));
+
+
             if (File.Exists(file))
             {
                 var lines = File.ReadAllText(file);
@@ -74,6 +94,16 @@ namespace SysBot.NET_Mobile.Views
                 env.StartAll();
                 Log("Started all bots.");
                 ConfigStatus = "Bots started. Check logs.";
+
+                // add kill button
+                killButton.IsVisible = true;
+                if (currentHandler != null)
+                {
+                    killButton.Clicked -= currentHandler;
+                    currentHandler = null;
+                }
+                currentHandler = (a, b) => { env.StopAll(); killButton.IsVisible = false;};
+                killButton.Clicked += currentHandler;
             }
             else
             {
