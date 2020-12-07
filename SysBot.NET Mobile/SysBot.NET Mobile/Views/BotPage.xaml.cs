@@ -44,6 +44,17 @@ namespace SysBot.NET_Mobile.Views
             };
             stackLayout.Children.Add(killButton);
             killButton.IsVisible = false;
+            
+            // test z3
+            /*
+            var HatBytes = Convert.FromBase64String(Hatterne_229B77A88B718ADD);
+            PK8 pkm = new PK8(HatBytes);
+            var ec = pkm.EncryptionConstant;
+            var pid = pkm.PID;
+            var IVs = PKX.ReorderSpeedLast((int[])pkm.IVs.Clone());
+            var match = Z3Search.GetFirstSeed(ec, pid, IVs, SeedCheckResults.FirstStarAndSquare);
+            Log(match.Seed.ToString("X"));
+            */
         }
 
         async void Button_Clicked(object sender, EventArgs e)
@@ -145,5 +156,7 @@ namespace SysBot.NET_Mobile.Views
             }
             catch { };
         }
+
+        private const string Hatterne_229B77A88B718ADD = "OPUOrgAAHK1aAwAAUKVA42AsAwCcABQAAAAAAEydXEEYGAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgUQAAAAAAAEgAYQB0AHQAZQByAGUAbgBlAAAAAAAAAAAAXQA+ArUCXQIZDxQKAAAAAAAAAAAAAAAAhwDu+/8/CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAAAAAIAAAAAAP8AAAAAAAAAAAAAAAAAAABCAGUAcgByAHkAAAAAAAAAAAAAAAAAAAAAADIGUAA+Ag0AAAAUBxwAAACOAAk3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWNlOpxG6X7It3PKCmcvdg=";
     }
 }
