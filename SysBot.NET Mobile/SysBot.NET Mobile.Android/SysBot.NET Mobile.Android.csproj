@@ -33,6 +33,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis>x86;x86_64;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,9 +50,6 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Z3">
-      <HintPath>..\SysBot.NET Mobile\deps\Microsoft.Z3.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="PKHeX.Core.AutoMod">
       <HintPath>..\SysBot.NET Mobile\deps\PKHeX.Core.AutoMod.dll</HintPath>
@@ -63,9 +65,6 @@
     </Reference>
     <Reference Include="SysBot.Pokemon.Twitch">
       <HintPath>..\SysBot.NET Mobile\deps\SysBot.Pokemon.Twitch.dll</HintPath>
-    </Reference>
-    <Reference Include="SysBot.Pokemon.Z3">
-      <HintPath>..\SysBot.NET Mobile\deps\SysBot.Pokemon.Z3.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,9 +83,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidNativeLibrary Include="lib\arm64-v8a\libz3.so">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="lib\arm64-v8a\libz3.so" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

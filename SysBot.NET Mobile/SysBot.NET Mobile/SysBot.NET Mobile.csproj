@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Z3\**" />
+    <EmbeddedResource Remove="Z3\**" />
+    <None Remove="Z3\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Costura.Fody" Version="4.1.0" />
     <PackageReference Include="Discord.Net" Version="2.2.0" />
     <PackageReference Include="Discord.Net.Core" Version="2.2.0" />
@@ -33,13 +39,11 @@
   <ItemGroup>
     <Folder Include="deps\" />
     <Folder Include="Models\" />
+    <Folder Include="Z3_SeedChecker\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.Z3">
-      <HintPath>deps\Microsoft.Z3.dll</HintPath>
-    </Reference>
     <Reference Include="PKHeX.Core.AutoMod">
       <HintPath>deps\PKHeX.Core.AutoMod.dll</HintPath>
     </Reference>
@@ -54,9 +58,6 @@
     </Reference>
     <Reference Include="SysBot.Pokemon.Twitch">
       <HintPath>deps\SysBot.Pokemon.Twitch.dll</HintPath>
-    </Reference>
-    <Reference Include="SysBot.Pokemon.Z3">
-      <HintPath>deps\SysBot.Pokemon.Z3.dll</HintPath>
     </Reference>
   </ItemGroup>
 
