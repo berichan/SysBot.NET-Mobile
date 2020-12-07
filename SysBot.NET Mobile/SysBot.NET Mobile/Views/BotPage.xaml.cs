@@ -105,6 +105,7 @@ namespace SysBot.NET_Mobile.Views
                 env.StartAll();
                 Log("Started all bots.");
                 ConfigStatus = "Bots started. Check logs.";
+                DeviceDisplay.KeepScreenOn = true;
 
                 // add kill button
                 killButton.IsVisible = true;

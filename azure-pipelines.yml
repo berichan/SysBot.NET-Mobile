@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
 
 variables:
   buildConfiguration: 'Release'
@@ -25,3 +25,10 @@ steps:
     projectFile: '**/*droid*.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
+    
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: SysBot-Mobile_Android'
+  inputs:
+    PathtoPublish: 'SysBot.NET Mobile.Android\bin\Release\'
+    ArtifactName: SysBot.NET_Mobile
+  condition: succeededOrFailed()
