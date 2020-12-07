@@ -45,7 +45,7 @@ namespace SysBot.NET_Mobile.Views
             stackLayout.Children.Add(killButton);
             killButton.IsVisible = false;
             
-            // test z3
+            // test z3 on android
             /*
             var HatBytes = Convert.FromBase64String(Hatterne_229B77A88B718ADD);
             PK8 pkm = new PK8(HatBytes);
