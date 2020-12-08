@@ -107,5 +107,16 @@ namespace SysBot.NET_Mobile.Views
             File.WriteAllBytes(Path.Combine(Helpers.SysBotFileHelper.MGDBPath, Path.GetFileName(file)), bytes);
             RefreshFileLists();
         }
+
+        void Button_Clicked_DeletePK8(object sender, EventArgs e)
+        {
+
+        }
+
+        void Button_Clicked_DeleteWC8(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

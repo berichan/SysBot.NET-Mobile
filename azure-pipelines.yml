@@ -39,8 +39,9 @@ steps:
     
 - task: CopyFiles@2
   inputs:
-    contents: '$(outputDirectory)/*.apk'
-    targetFolder: $(Build.ArtifactStagingDirectory)
+    SourceFolder: '$(outputDirectory)'
+    Contents: **/*.apk
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
     
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: SysBot-Mobile_Android'
