@@ -65,6 +65,7 @@ namespace SysBot.Pokemon
                 yield return seed;
         }
 
+#nullable enable
         public static IEnumerable<ulong> FindPotentialSeeds(uint ec, uint pid, bool shiny)
         {
             using var ctx = new Context(new Dictionary<string, string> { { "model", "true" } });
@@ -81,6 +82,7 @@ namespace SysBot.Pokemon
                 }
             }
         }
+#nullable disable
 
         private static BoolExpr CreateModel(Context ctx, uint ec, uint pid, bool shiny, out BitVecExpr s0)
         {
@@ -128,6 +130,7 @@ namespace SysBot.Pokemon
             return res;
         }
 
+#nullable enable
         private static Model? Check(Context ctx, BoolExpr cond)
         {
             Solver solver = ctx.MkSolver();
@@ -137,6 +140,7 @@ namespace SysBot.Pokemon
                 return null;
             return solver.Model;
         }
+#nullable disable
 
         public static bool IsMatch(ulong seed, int[] ivs, int fixed_ivs)
         {

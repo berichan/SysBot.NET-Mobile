@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Costura.Fody" Version="4.1.0" />
+    <PackageReference Include="Costura.Fody" Version="4.1.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Discord.Net" Version="2.2.0" />
     <PackageReference Include="Discord.Net.Core" Version="2.2.0" />
     <PackageReference Include="Fody" Version="6.3.0">
@@ -32,7 +34,7 @@
     <PackageReference Include="PKHeX.Core" Version="20.11.28" />
     <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
     <PackageReference Include="TwitchLib.Client" Version="3.1.5" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre5" />
   </ItemGroup>
 
