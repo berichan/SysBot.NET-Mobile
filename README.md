@@ -8,7 +8,7 @@ SysBot.NET with a Xamarin.Forms frontend for the UI. Currently only works with A
 
 **Is this fully functional?**
 
-$info doesn't work due to no local file access. Everything else (including seedchecks now) *should* work. Make sure to change to the logs tab after loading your config, otherwise no logging will happen.
+$info doesn't work due to no local file access. Everything else (including seedchecks now) *should* work. Make sure to view the logs tab after loading your config, otherwise no logging will happen.
 
 **Do I need to compile this myself?**
 
