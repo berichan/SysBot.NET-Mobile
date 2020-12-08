@@ -31,10 +31,10 @@ steps:
   inputs:
     apkFiles: '$(outputDirectory)/*.apk'
     apksign: true
-    apksignerKeystoreFile: 'berichan.keystore'
-    apksignerKeystorePassword: '$(key.ksp)'
-    apksignerKeystoreAlias: '$(key.alias)'
-    apksignerKeyPassword: '$(key.password)'
+    apksignerKeystoreFile: 'doesnt.keystore'
+    apksignerKeystorePassword: 'matter'
+    apksignerKeystoreAlias: 'doesnt'
+    apksignerKeyPassword: 'matter'
     zipalign: false
     
 - task: PublishBuildArtifacts@1
