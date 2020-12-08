@@ -41,5 +41,5 @@ steps:
   displayName: 'Publish Artifact: SysBot-Mobile_Android'
   inputs:
     PathtoPublish: '$(outputDirectory)'
-    ArtifactName: SysBot.NET_Mobile
+    ArtifactName: SysBot.NET-Mobile
   condition: succeededOrFailed()
