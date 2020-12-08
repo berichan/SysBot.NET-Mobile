@@ -110,12 +110,12 @@ namespace SysBot.NET_Mobile.Views
 
         void Button_Clicked_DeletePK8(object sender, EventArgs e)
         {
-
+            Directory.Delete(Helpers.SysBotFileHelper.DistributionPath, true);
         }
 
         void Button_Clicked_DeleteWC8(object sender, EventArgs e)
         {
-
+            Directory.Delete(Helpers.SysBotFileHelper.MGDBPath, true);
         }
 
     }
