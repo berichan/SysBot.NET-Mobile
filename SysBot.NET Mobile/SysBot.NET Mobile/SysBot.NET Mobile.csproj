@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.470" />
     <PackageReference Include="Costura.Fody" Version="4.1.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
@@ -70,6 +71,12 @@
     <Compile Update="Views\LogPage.xaml.cs">
       <DependentUpon>LogPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\FilesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <PropertyGroup>

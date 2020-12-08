@@ -9,6 +9,10 @@
                FontSize="Medium"
                FontAttributes="Bold"
                HorizontalOptions="Center" />
+        <Label Text="Use the bots tab to load a config"
+               FontSize="Small"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
         <ScrollView Rotation="180" VerticalOptions="FillAndExpand">
             <StackLayout>
                 <Label Rotation="180" Text="{Binding LogData}" />

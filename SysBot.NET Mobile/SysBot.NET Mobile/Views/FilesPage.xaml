@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SysBot.NET_Mobile.Views.FilesPage">
+    <StackLayout Margin="20">
+        
+        <Label Text="Distribution PK8s"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+        <Label Text="Load PK8s here if distributing"
+               FontSize="Small"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+        <Button Margin="0,5,0,0" Text="Load PK8"
+                        Clicked="Button_Clicked_PK8"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <Label Text="{Binding PK8List}" />
+            </StackLayout>
+        </ScrollView>
+
+        <Label Text="Legal WC8s"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+        <Label Text="Load MGDB WC8s here for legality"
+               FontSize="Small"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+        <Button Margin="0,5,0,0" Text="Load WC8"
+                        Clicked="Button_Clicked_WC8"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <Label Text="{Binding WC8List}" />
+            </StackLayout>
+        </ScrollView>
+        
+    </StackLayout>
+</ContentPage>

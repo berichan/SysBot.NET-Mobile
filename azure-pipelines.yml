@@ -37,9 +37,14 @@ steps:
     apksignerKeyPassword: 'matter'
     zipalign: true
     
+- task: CopyFiles@2
+  inputs:
+    contents: '$(outputDirectory)/*.apk'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+    
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: SysBot-Mobile_Android'
   inputs:
-    PathtoPublish: '$(outputDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: SysBot.NET-Mobile
   condition: succeededOrFailed()

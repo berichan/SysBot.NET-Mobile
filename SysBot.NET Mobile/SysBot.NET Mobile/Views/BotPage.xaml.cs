@@ -6,6 +6,7 @@ using SysBot.Pokemon;
 using Newtonsoft.Json;
 using System.IO;
 using Xamarin.Essentials;
+using SysBot.NET_Mobile.Helpers;
 
 namespace SysBot.NET_Mobile.Views
 {
@@ -44,7 +45,10 @@ namespace SysBot.NET_Mobile.Views
             };
             stackLayout.Children.Add(killButton);
             killButton.IsVisible = false;
-            
+
+            SysBotFileHelper.CreateDummyDlls();
+            Directory.SetCurrentDirectory(SysBotFileHelper.WritablePath);
+
             // test z3 on android
             /*
             var HatBytes = Convert.FromBase64String(Hatterne_229B77A88B718ADD);
@@ -60,7 +64,6 @@ namespace SysBot.NET_Mobile.Views
         async void Button_Clicked(object sender, EventArgs e)
         {
             var file = "";
-            var log = LogPage.LastInstance;
 
             var pickResult = await FilePicker.PickAsync(new PickOptions
             {
@@ -85,13 +88,17 @@ namespace SysBot.NET_Mobile.Views
 
             Log("Starting up...");
             PokeTradeBot.SeedChecker = new Z3SeedSearchHandler<PK8>();
-            Directory.SetCurrentDirectory(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal));
 
 
             if (File.Exists(file))
             {
                 var lines = File.ReadAllText(file);
                 var prog = JsonConvert.DeserializeObject<ProgramConfig>(lines);
+
+                // Handle these manually
+                prog.Hub.Folder.DistributeFolder = SysBotFileHelper.DistributionPath;
+                prog.Hub.Legality.MGDBPath = SysBotFileHelper.MGDBPath;
+
                 var env = new PokeBotRunnerImpl(prog.Hub);
 
                 foreach (var bot in prog.Bots)
@@ -149,11 +156,11 @@ namespace SysBot.NET_Mobile.Views
 
         private static void Log(string msg, string ident = "Program")
         {
-            // Xamarin forms instance does not carry over when opening files for now
+            // Xamarin forms view instance does not carry over when opening files for now
             var log = LogPage.LastInstance;
             try
             {
-                log.UpdateLog($"\r\n{ident}: {msg}");
+                log.UpdateLog($"{ident}: {msg}");
             }
             catch { };
         }
