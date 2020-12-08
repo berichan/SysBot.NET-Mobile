@@ -35,7 +35,7 @@ steps:
     apksignerKeystorePassword: 'matter'
     apksignerKeystoreAlias: 'doesnt'
     apksignerKeyPassword: 'matter'
-    zipalign: false
+    zipalign: true
     
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: SysBot-Mobile_Android'
