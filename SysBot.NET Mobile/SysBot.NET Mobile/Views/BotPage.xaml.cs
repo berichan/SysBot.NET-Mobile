@@ -7,11 +7,15 @@ using Newtonsoft.Json;
 using System.IO;
 using Xamarin.Essentials;
 using SysBot.NET_Mobile.Helpers;
+using SysBot.AnimalCrossing;
+using System.Threading;
 
 namespace SysBot.NET_Mobile.Views
 {
     public partial class BotPage : ContentPage
     {
+        #region Bindings
+        // Pokemon
         private string configStatus;
         public string ConfigStatus
         {
@@ -19,32 +23,50 @@ namespace SysBot.NET_Mobile.Views
             set
             {
                 configStatus = value;
-                OnPropertyChanged(nameof(ConfigStatus)); // Notify that there was a change on this property
+                OnPropertyChanged(nameof(ConfigStatus));
             }
         }
 
-        private StackLayout stackLayout;
-        private Button killButton;
-        private EventHandler currentHandler = null;
+        private bool pkmConfigIdle = true;
+        public bool PKMConfigIdle
+        {
+            get { return pkmConfigIdle; }
+            set
+            {
+                pkmConfigIdle = value;
+                OnPropertyChanged(nameof(PKMConfigIdle));
+            }
+        }
+        // ACNH
+        private string configStatusACNH;
+        public string ConfigStatusACNH
+        {
+            get { return configStatusACNH; }
+            set
+            {
+                configStatusACNH = value;
+                OnPropertyChanged(nameof(ConfigStatusACNH));
+            }
+        }
+
+        private bool acnhConfigIdle = true;
+        public bool ACNHConfigIdle
+        {
+            get { return acnhConfigIdle; }
+            set
+            {
+                acnhConfigIdle = value;
+                OnPropertyChanged(nameof(ACNHConfigIdle));
+            }
+        }
+        #endregion
 
         public BotPage()
         {
             InitializeComponent();
             BindingContext = this;
-            ConfigStatus = "No config loaded.";
-
-            stackLayout = new StackLayout
-            {
-                Spacing = 0,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-            };
-
-            killButton = new Button
-            {
-                Text = "Stop all bots"
-            };
-            stackLayout.Children.Add(killButton);
-            killButton.IsVisible = false;
+            ConfigStatus = "No PKM config loaded.";
+            ConfigStatusACNH = "No ACNH config loaded";
 
             SysBotFileHelper.CreateDummyDlls();
             Directory.SetCurrentDirectory(SysBotFileHelper.WritablePath);
@@ -71,13 +93,7 @@ namespace SysBot.NET_Mobile.Views
             }); 
 
             if (pickResult != null)
-            {
-                /*var stream = await pickResult.OpenReadAsync().ConfigureAwait(false);
-                var bytes = new byte[stream.Length];
-                await stream.ReadAsync(bytes, 0, (int)stream.Length).ConfigureAwait(false);*/
-
                 file = pickResult.FullPath;
-            }
 
             if (!file.ToLower().EndsWith(".json"))
             {
@@ -113,16 +129,7 @@ namespace SysBot.NET_Mobile.Views
                 Log("Started all bots.");
                 ConfigStatus = "Bots started. Check logs.";
                 DeviceDisplay.KeepScreenOn = true;
-
-                // add kill button
-                killButton.IsVisible = true;
-                if (currentHandler != null)
-                {
-                    killButton.Clicked -= currentHandler;
-                    currentHandler = null;
-                }
-                currentHandler = (a, b) => { env.StopAll(); killButton.IsVisible = false;};
-                killButton.Clicked += currentHandler;
+                PKMConfigIdle = false;
             }
             else
             {
@@ -135,7 +142,7 @@ namespace SysBot.NET_Mobile.Views
         {
             if (!cfg.IsValidIP())
             {
-                Log($"{cfg.IP}'s config is not valid.");
+                Log($"{cfg.IP}'s config is not valid. IP could not be validated.");
                 return false;
             }
 
@@ -152,6 +159,47 @@ namespace SysBot.NET_Mobile.Views
 
             Log($"Added: {cfg.IP}: {cfg.InitialRoutine}");
             return true;
+        }
+
+        async void Button_Clicked_ACNH(object sender, EventArgs e)
+        {
+            var file = "";
+
+            var pickResult = await FilePicker.PickAsync(new PickOptions
+            {
+                PickerTitle = "Select your config.json"
+            });
+
+            if (pickResult != null)
+                file = pickResult.FullPath;
+
+            if (!file.ToLower().EndsWith(".json"))
+            {
+                Log("User attemped to load file that isn't a .json");
+                ConfigStatus = "ERROR: File was not valid json.";
+                return;
+            }
+
+            Log("Starting up...");
+
+            if (File.Exists(file))
+            {
+                var lines = File.ReadAllText(file);
+                var prog = JsonConvert.DeserializeObject<CrossBotConfig>(lines);
+
+                LogUtil.Forwarders.Add(Log);
+                Log("Started all bots.");
+                ConfigStatus = "Bots started. Check logs.";
+                DeviceDisplay.KeepScreenOn = true;
+                ACNHConfigIdle = false;
+
+                await BotRunner.RunFrom(prog, CancellationToken.None).ConfigureAwait(false);
+            }
+            else
+            {
+                Log("Unable to parse config file. Please copy your config from the Windows application directory.");
+                ConfigStatusACNH = "ERROR: File was not valid config.";
+            }
         }
 
         private static void Log(string msg, string ident = "Program")
