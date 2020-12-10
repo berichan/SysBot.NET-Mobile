@@ -41,6 +41,12 @@
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White"
                         IsEnabled="{Binding ACNHConfigIdle}"/>
+
+                <Button Margin="0,10,0,0" Text="Kill all bots and close app"
+                        Clicked="Button_Clicked_Kill"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"
+                        IsEnabled="{Binding ACNHConfigIdle}"/>
             </StackLayout>
         </ScrollView>
     </Grid>
