@@ -10,11 +10,13 @@ Currently only works with Android, I don't own an iOS device.
 
 **Is this fully functional?**
 
-$info doesn't work due to no local file access. Everything else (including seedchecks now) *should* work. Make sure to view the logs tab after loading your config.
+Pokemon: $info doesn't work due to no local file access. Everything else (including seedchecks now) *should* work. Make sure to view the logs tab after loading your config.
+
+AnimalCrossing: You tell me.
 
 **Can I still use my device while this app is running?**
 
-No, [Android no longer allows background execution of running tasks](https://docs.microsoft.com/en-gb/xamarin/android/app-fundamentals/services/#background-execution-limits-in-android-80), so the app must have focus at all times and your device shouldn't ever lock the screen while running (change the screen lock/sleep time to "never" in the settings of your device)
+No, [Android no longer allows background execution of running tasks](https://docs.microsoft.com/en-gb/xamarin/android/app-fundamentals/services/#background-execution-limits-in-android-80), so the app must have focus at all times and your device shouldn't ever lock the screen while running (the app will stop the screen from turning off, but if this doesn't work then change the screen lock/sleep time to "never" in the settings of your device)
 
 **Do I need to compile this myself?**
 
