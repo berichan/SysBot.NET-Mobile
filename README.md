@@ -4,7 +4,9 @@
 
 **What is this?**
 
-SysBot.NET with a Xamarin.Forms frontend for the UI. Currently only works with Android, I don't own an iOS device. Contains both the SysBot.Pokemon and SysBot.AnimalCrossing core.
+[SysBot.NET](https://github.com/kwsch/SysBot.NET) with a Xamarin.Forms frontend for the UI. Contains both the [SysBot.Pokemon](https://github.com/kwsch/SysBot.NET) and [SysBot.AnimalCrossing](https://github.com/kwsch/SysBot.AnimalCrossing) core.
+
+Currently only works with Android, I don't own an iOS device.
 
 **Is this fully functional?**
 
