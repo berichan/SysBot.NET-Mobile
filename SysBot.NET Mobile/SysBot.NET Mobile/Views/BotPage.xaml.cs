@@ -9,6 +9,7 @@ using Xamarin.Essentials;
 using SysBot.NET_Mobile.Helpers;
 using SysBot.AnimalCrossing;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace SysBot.NET_Mobile.Views
 {
@@ -216,6 +217,11 @@ namespace SysBot.NET_Mobile.Views
         void Button_Clicked_Kill(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        async void Button_Clicked_ManageConfigs(object sender, EventArgs e)
+        {
+            string action = await DisplayActionSheet("Select an option.", "Cancel", null, "Edit existing config", "Create & edit new SWSH config", "Create & edit new ACNH config").ConfigureAwait(false);
         }
 
         private const string Hatterene_229B77A88B718ADD = "OPUOrgAAHK1aAwAAUKVA42AsAwCcABQAAAAAAEydXEEYGAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgUQAAAAAAAEgAYQB0AHQAZQByAGUAbgBlAAAAAAAAAAAAXQA+ArUCXQIZDxQKAAAAAAAAAAAAAAAAhwDu+/8/CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAAAAAIAAAAAAP8AAAAAAAAAAAAAAAAAAABCAGUAcgByAHkAAAAAAAAAAAAAAAAAAAAAADIGUAA+Ag0AAAAUBxwAAACOAAk3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWNlOpxG6X7It3PKCmcvdg=";
