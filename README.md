@@ -2,6 +2,12 @@
 
 ### Q & A ###
 
+**Why has this been archived?**
+
+As of .NET6, Microsoft has introduced the MAUI platform for multi-OS deployment of applications. SysBot.NET will likely get a MAUI project and frontend so this Xamarin/Mono front end is no longer required.
+
+Legacy FAQ below.
+
 **What is this?**
 
 [SysBot.NET](https://github.com/kwsch/SysBot.NET) with a Xamarin.Forms frontend for the UI. Contains both the [SysBot.Pokemon](https://github.com/kwsch/SysBot.NET) and [SysBot.AnimalCrossing](https://github.com/kwsch/SysBot.AnimalCrossing) core.
